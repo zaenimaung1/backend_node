@@ -1,18 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Controller = require('../controller/user_controller');
+const { verifyToken } = require('../utils/validator');
 
-
-const verifyToken = async (req , res , next) => {
-    let authHeader = req.headers.authorization;
-     if(authHeader){
-        let token = authHeader.split(" ")[1];
-        console.log(token);
-        next();
-     }else{
-        next(new Error("Unauthorized"));
-     }
-}
+     
 
 
 
