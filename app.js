@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const userRouter = require('./router/user_router');
 const cateRouter = require('./router/category_router');
+const productRouter = require('./router/product_router');
 const fileUpload = require('express-fileupload');
 const { saveSingleFile , saveMultipleFiles , deleteImageByLink , deleteImageByName} = require('./utils/gallery');
 
@@ -14,7 +15,7 @@ app.use(express.static('public'));
 // routes
 app.use('/user', userRouter);
 app.use('/category', cateRouter);
-
+app.use('/products', productRouter);
 app.post("/image", saveSingleFile, (req, res ,next) => {
     res.json({
         con: true,

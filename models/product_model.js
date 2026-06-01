@@ -5,6 +5,7 @@ const productSchema = new Schema({
   name: { type: String, required: true },
   price: { type: Number, required: true },
   user : { type: Schema.Types.ObjectId, ref: "Users", required: true },
+  category: { type: Schema.Types.ObjectId, ref: "Categories", required: true },
   size: { type: String, enum: ["Small", "Medium", "Large"], default: "Medium" },
   colors: { type: [String] },
   tags : { type: [String] },

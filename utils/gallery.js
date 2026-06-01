@@ -53,7 +53,7 @@ const saveMultipleFiles = async (req , res , next) => {
             let fileName = genFileName(file.name);
             let filePath = getSavePath(fileName);
             await file.mv(filePath);
-            imgLinks.push(getImagePath(fileName));
+            imgLinks.push({link: getImagePath(fileName) , desc : "Image"+i});
         }
 
         req.imgLinks = imgLinks;
